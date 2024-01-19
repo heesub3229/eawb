@@ -2,10 +2,23 @@ package com.aact.eAWB.Entity;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.util.Date;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Entity
+@Table(name = "TWM_FWB_HEADER")
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class FwbHeaderEntity {
 
 	@Id
