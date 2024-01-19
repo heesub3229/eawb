@@ -32,6 +32,7 @@ dependencies {
 	runtimeOnly 'com.oracle.database.jdbc:ojdbc11'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation 'net.sf.jasperreports:jasperreports:6.20.6'
 }
 
 tasks.named('bootBuildImage') {
