@@ -6,4 +6,5 @@ public class FwbDto {
 	private BigInteger masterAirWayBillSid;
 	private String airlinePrefix;
 	private String awbSerialNumber;
+	
 }
