@@ -14,15 +14,16 @@ import com.aact.eAWB.Entity.FwbHeaderEntity;
 @Repository
 public interface FwbHeaderRepository extends JpaRepository<FwbHeaderEntity, BigInteger> {
 
-	@Query("SELECT new com.aact.eAWB.Dto.FwbDto(h,r,s) "
+	@Query("SELECT new com.aact.eAWB.Dto.FwbDto(h,r) "
 			+ "FROM FwbHeaderEntity h "
 			+ "JOIN FwbRtdEntity r "
-			+ "ON h.masterAirWayBillSid = r.masterAirWayBillSid "
-			+ "LEFT JOIN FwbSphEntity s "
-			+ "ON s.masterAirWayBillSid = h.masterAirWayBillSid "
-			+ "AND s.sequenceNo = 1"
+			+ "ON h.masterAirWayBillSid = r.id.masterAirWayBillSid "
 			+ "WHERE h.awbSerialNumber = :awbNo "
-			+ "AND h.airlinePrefix = :prefix")
+			+ "AND h.airlinePrefix = :prefix "
+			+ "AND h.usableFlag = 'Y'")
 	List<FwbDto> findByAwb(@Param("prefix")String prefix,@Param("awbNo")String awbNo);
+	
+	
+	
 	
 }
