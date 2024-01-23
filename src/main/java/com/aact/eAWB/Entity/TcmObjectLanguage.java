@@ -3,6 +3,7 @@ package com.aact.eAWB.Entity;
 import java.math.BigInteger;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
@@ -19,11 +20,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class TcmObjectLanguage {
 
-	@Id
-	@Column(name="OBJECT_SID")
-	private BigInteger objectSid;
-	@Column(name="LANGUAGE_CODE")
-	private String languageCode;
+	@EmbeddedId
+	private ObjectIdSub id;
 	@Column(name="OBJECT_NAME")
 	private String onjectName;
 	@Column(name="REMARKS")

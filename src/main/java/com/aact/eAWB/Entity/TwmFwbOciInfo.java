@@ -2,9 +2,11 @@ package com.aact.eAWB.Entity;
 
 import java.math.BigInteger;
 
+
+
 import jakarta.persistence.Column;
+import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -19,11 +21,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class TwmFwbOciInfo {
 
-	@Id
-	@Column(name="MASTER_AIR_WAY_BILL_SID")
-	private BigInteger mawbBillSid;
-	@Column(name="SEQUENCE_NO")
-	private BigInteger sequenceNo;
+	
+	@EmbeddedId
+	private FwbSphEntityId id;
 	@Column(name="COUNTRY_CODE")
 	private String countryCode;
 	@Column(name="INFORMATION_IDENTIFIER")

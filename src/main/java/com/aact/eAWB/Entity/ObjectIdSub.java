@@ -14,11 +14,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Embeddable
-public class FwbSphEntityId implements Serializable {
+public class ObjectIdSub implements Serializable {
 
-	@Column(name = "MASTER_AIR_WAY_BILL_SID")
-    private BigInteger masterAirWayBillSid;
-
-    @Column(name = "SEQUENCE_NO")
-    private BigInteger sequenceNo;
+	@Column(name="OBJECT_SID")
+	private BigInteger objectSid;
+	@Column(name="LANGUAGE_CODE")
+	private String languageCode;
 }
