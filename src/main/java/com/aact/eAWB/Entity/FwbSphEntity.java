@@ -5,6 +5,7 @@ import java.math.BigInteger;
 import java.util.Date;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
@@ -22,11 +23,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class FwbSphEntity {
 	
-	@Id
-	@Column(name="MASTER_AIR_WAY_BILL_SID")
-	private BigInteger masterAirWayBillSid;
-	@Column(name="SEQUENCE_NO")
-	private BigInteger sequenceNo;
+	
+	@EmbeddedId
+	private FwbSphEntityId id;
+	
 	@Column(name="DANGEROUS_CARGO_FLAG")
 	private String dangerousCargoFlag;
 	@Column(name="SPECIAL_HANDLING_CODE")

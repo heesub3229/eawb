@@ -6,6 +6,7 @@ import java.util.Date;
 
 
 import jakarta.persistence.Column;
+import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
@@ -26,11 +27,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class FwbRtdEntity {
 	
-	@Id
-	@Column(name="MASTER_AIR_WAY_BILL_SID")
-	private BigInteger masterAirWayBillSid;
-	@Column(name="SEQUENCE_NO")
-	private BigInteger sequenceNo;
+	@EmbeddedId
+	private FwbSphEntityId id;
 	@Column(name="NO_OF_PIECES")
 	private BigInteger numberOfPieces;
 	@Column(name="WEIGHT_CODE")

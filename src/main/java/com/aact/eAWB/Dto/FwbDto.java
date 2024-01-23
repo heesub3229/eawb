@@ -17,6 +17,5 @@ import lombok.NoArgsConstructor;
 public class FwbDto {
 	private FwbHeaderEntity header;
 	private FwbRtdEntity rtd;
-	private FwbSphEntity sph;
 	
 }
