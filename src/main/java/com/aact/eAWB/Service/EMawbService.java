@@ -22,6 +22,7 @@ import com.aact.eAWB.Repository.FwbHeaderRepository;
 import com.aact.eAWB.Repository.FwbOciRepository;
 import com.aact.eAWB.Repository.FwbSphRepository;
 
+import jakarta.servlet.http.HttpServletResponse;
 import net.sf.jasperreports.engine.JREmptyDataSource;
 import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
@@ -51,12 +52,16 @@ public class EMawbService {
 	
 	private String localPath = System.getProperty("user.dir");
 	
-	public void getPdfEMAWB(String mawb) {
+	public byte[] getPdfEMAWB(String mawb) throws Exception {
+		byte[] sendPdf = null;
 		try {
 		String[] awb = mawb.split("-");
 			
 		List<FwbDto> entities = fwbHeaderRepository.findByAwb(awb[0],awb[1]);
-		
+		if(entities.size()==0) {
+		    throw new RuntimeException("FWB정보 없음");
+
+		}
 		
 		String reportPath = localPath+"\\mawb.jasper";
 		JasperReport jasperReport = (JasperReport)JRLoader.loadObjectFromFile(reportPath);
@@ -249,7 +254,7 @@ public class EMawbService {
 		}
 		
 		for(int i = 0;i<6;i++) {
-			if(sphEntities.get(i).getSpecialHandlingCode() != null || !sphEntities.get(i).getSpecialHandlingCode().equals("")) {
+			if(sphEntities.get(i).getSpecialHandlingCode() != null && !sphEntities.get(i).getSpecialHandlingCode().equals("")) {
 				parameters.put("shc"+(i+1), sphEntities.get(i).getSpecialHandlingCode());
 			}else {
 				parameters.put("shc"+(i+1), "");
@@ -279,14 +284,15 @@ public class EMawbService {
 
 		JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters,new JREmptyDataSource());
 		
-		JasperExportManager.exportReportToPdfFile(jasperPrint,"C:\\temp\\report3.pdf");
+		sendPdf = JasperExportManager.exportReportToPdf(jasperPrint);
 		
 			
 		
 		}catch (Exception e) {
 			// TODO: handle exception
 			log.logTemp(e.getMessage(), "getPdfEMAWB");
+			throw e;
 		}
-
+		return sendPdf;
 	}
 }

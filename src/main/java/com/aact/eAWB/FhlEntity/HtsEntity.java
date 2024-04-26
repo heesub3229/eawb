@@ -1,6 +1,5 @@
 package com.aact.eAWB.FhlEntity;
 
-import java.math.BigInteger;
 import java.util.Date;
 
 import jakarta.persistence.Column;
@@ -13,7 +12,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "TIF_FHL_HTS")
+@Table(name = "TIF_FHL_HTS",schema = "WMSEDI")
 @Data
 @Builder
 @NoArgsConstructor

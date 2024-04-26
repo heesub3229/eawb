@@ -2,8 +2,6 @@ package com.aact.eAWB.FhlEntity;
 
 import java.math.BigInteger;
 
-import com.aact.eAWB.Entity.FwbSphEntityId;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 import lombok.AllArgsConstructor;

@@ -11,7 +11,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "TIF_FHL_CNE")
+@Table(name = "TIF_FHL_CNE",schema = "WMSEDI")
 @Data
 @Builder
 @NoArgsConstructor

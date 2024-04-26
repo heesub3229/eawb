@@ -1,13 +1,10 @@
 package com.aact.eAWB.Entity;
 
-import java.math.BigDecimal;
-import java.math.BigInteger;
 import java.util.Date;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

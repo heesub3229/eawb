@@ -13,7 +13,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
 	public void addCorsMappings(CorsRegistry registry) {
 		registry.addMapping("/**")
 	    .allowedOriginPatterns("*") // HTTP 및 HTTPS 모두 허용
-	    .allowedMethods("GET","POST","PUT","PATCH","DELETE","OPTIONS")
+	    .allowedMethods("GET","POST")
 	    .allowedHeaders("*")
 	    .maxAge(MAX_AGE_SECS);
 	}
